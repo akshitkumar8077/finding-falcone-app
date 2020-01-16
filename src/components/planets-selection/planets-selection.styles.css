@@ -1,0 +1,56 @@
+.planets-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+}
+
+.planets-container {
+  display: flex;
+  width: 80vw;
+  justify-content: space-between;
+}
+
+.planet-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.planet-card:hover {
+  background-color: #875347;
+  transition: 0.4s ease;
+}
+
+.planet-card--active {
+  background-color: #875347;
+  border: 2px solid rgb(212, 212, 212);
+  transition: 0.4s ease;
+}
+
+.planet-card--selected {
+  background-color: #875347;
+  transition: 0.4s ease;
+}
+
+.card__img {
+  width: 100px;
+}
+
+.card__img--active {
+  transform-origin: 50% 50%;
+  animation: spin 50s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

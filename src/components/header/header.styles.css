@@ -1,0 +1,10 @@
+.header {
+  height: 50px;
+  width: 100vw;
+  padding: 25px 50px 25px 50px;
+  display: flex;
+  align-items: center;
+}
+
+.logo-container {
+}

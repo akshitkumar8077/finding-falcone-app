@@ -1,0 +1,28 @@
+.custom-button {
+  display: flex;
+  justify-content: center;
+  min-width: 165px;
+  width: auto;
+  height: 50px;
+  padding: 0 35px 0 35px;
+  margin: 1em;
+  border: 1px solid #c94833;
+
+  background-color: #c94833;
+  color: white;
+
+  text-transform: uppercase;
+  font-weight: bolder;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  font-size: 15px;
+
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.custom-button:hover {
+  background-color: #ff8872;
+  color: black;
+  border: 1px solid #ff8872;
+}
