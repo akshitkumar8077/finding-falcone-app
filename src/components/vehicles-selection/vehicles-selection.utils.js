@@ -3,7 +3,8 @@ export const canVehicleTravel = (vehicleMaxDistance, planetDistance) => {
 };
 
 export const isVehicleAvailable = vehicleTotalNo => {
-  return vehicleTotalNo === 0 ? 'vehicle-card--unvailable' : '';
+  console.log('TLC: vehicleTotalNo', vehicleTotalNo);
+  return vehicleTotalNo === undefined ? 'vehicle-card--unvailable' : '';
 };
 
 export const isVehicleSelected = (

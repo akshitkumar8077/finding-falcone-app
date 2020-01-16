@@ -86,7 +86,7 @@ const VehiclesSelection = ({
           ${'vehicle-card'}
           ${canVehicleTravel(vehicle.max_distance, planetActive.distance)}
           ${isVehicleSelected(vehicle, vehiclesSelected, planetActive)}
-          ${isVehicleAvailable(vehicle.total_no)}
+          ${isVehicleAvailable(vehicle.remain_no)}
         `}
         key={vehicle.name}
         onClick={() => handleClick(vehicle, planetActive)}
@@ -98,7 +98,12 @@ const VehiclesSelection = ({
         />
         <h3>{vehicle.name}</h3>
         <span>
-          Remaining: <strong>{vehicle.remain_no}</strong>
+          Remaining:
+          <strong>
+            {vehicle.remain_no || vehicle.remain_no === 0
+              ? vehicle.remain_no
+              : vehicle.total_no}
+          </strong>
         </span>
         <span>
           Maximum distance: <strong>{vehicle.max_distance}</strong>
