@@ -1,6 +1,6 @@
 .select-page-container {
   display: flex;
   flex-direction: column;
-  width: 100vw;
   height: calc(100vh - 50px);
+  height: calc(100vmin - 50px);
 }

@@ -57,6 +57,8 @@ export const renderVehicleImgClassName = (
 };
 
 export const calculTimeTaken = (planetsSelected, vehiclesSelected) => {
+  console.log('TLC: calculTimeTaken -> vehiclesSelected', vehiclesSelected);
+  console.log('TLC: calculTimeTaken -> planetsSelected', planetsSelected);
   const distance = planetsSelected.map(item => item.distance);
   const speed = vehiclesSelected.map(item => item.speed);
 

@@ -61,7 +61,7 @@ const VehiclesSelection = ({
 
     if (vehicleAlreadySelected) {
       return (
-        // in case of undo (click on same planet)
+        // i want to de-select my vehicle
         [
           removeVehicle(vehicle, planetActive.name),
           removePlanet(planetActive),
@@ -70,11 +70,10 @@ const VehiclesSelection = ({
       );
     } else {
       return [
-        planetAlreadySelected && vehicle.remain_no === 0
-          ? null
-          : addPlanet(planetActive),
-        vehicle.remain_no !== 0 ? addVehicle(vehicle, planetActive.name) : null,
-        vehicle.remain_no !== 0 ? updateStock() : null
+        removePlanet(planetActive),
+        addPlanet(planetActive),
+        addVehicle(vehicle, planetActive.name),
+        updateStock()
       ];
     }
   };
