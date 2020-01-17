@@ -6,9 +6,8 @@ import './vehicles-selection.styles.css';
 import CustomButton from '../custom-button/custom-button.components';
 
 import {
-  canVehicleTravel,
-  isVehicleAvailable,
-  isVehicleSelected,
+  renderVehicleCardClassName,
+  renderVehicleImgClassName,
   calculTimeTaken
 } from './vehicles-selection.utils';
 
@@ -62,7 +61,7 @@ const VehiclesSelection = ({
 
     if (vehicleAlreadySelected) {
       return (
-        // in case on undo (click on same planet)
+        // in case of undo (click on same planet)
         [
           removeVehicle(vehicle, planetActive.name),
           removePlanet(planetActive),
@@ -84,17 +83,20 @@ const VehiclesSelection = ({
     vehiclesList &&
     vehiclesList.map(vehicle => (
       <div
-        className={`
-          ${'vehicle-card'}
-          ${canVehicleTravel(vehicle.max_distance, planetActive.distance)}
-          ${isVehicleSelected(vehicle, vehiclesSelected, planetActive)}
-          ${isVehicleAvailable(vehicle.remain_no)}
-        `}
+        className={renderVehicleCardClassName(
+          vehicle,
+          vehiclesSelected,
+          planetActive
+        )}
         key={vehicle.name}
         onClick={() => handleClick(vehicle, planetActive)}
       >
         <img
-          className='vehicle-logo'
+          className={renderVehicleImgClassName(
+            vehicle,
+            vehiclesSelected,
+            planetActive
+          )}
           src={require(`../../assets/vehicles/${vehicle.name}.png`)}
           alt={vehicle.name}
         />

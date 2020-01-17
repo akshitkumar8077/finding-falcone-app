@@ -1,26 +1,59 @@
-export const canVehicleTravel = (vehicleMaxDistance, planetDistance) => {
-  return vehicleMaxDistance < planetDistance ? 'vehicle-card--unavailable' : '';
-};
-
-export const isVehicleAvailable = vehicleTotalNo => {
-  console.log('TLC: vehicleTotalNo', vehicleTotalNo);
-  return vehicleTotalNo === undefined ? 'vehicle-card--unvailable' : '';
-};
-
-export const isVehicleSelected = (
-  vehicleCard,
+export const renderVehicleCardClassName = (
+  vehicle,
   vehiclesSelected,
   planetActive
 ) => {
-  const isVehicleExist =
+  let className = 'vehicle-card ';
+
+  if (vehicle.max_distance < planetActive.distance) {
+    className += 'vehicle-card--unavailable ';
+  }
+
+  if (
     vehiclesSelected &&
     vehiclesSelected.find(
       vehicleSelected =>
-        vehicleSelected.name === vehicleCard.name &&
-        vehicleSelected.destination === planetActive.name
-    );
+        vehicle.remain_no === 0 &&
+        vehicleSelected.destination === vehicle.destination &&
+        vehicleSelected.destination !== planetActive.name
+    )
+  ) {
+    className += 'vehicle-card--unavailable ';
+  }
 
-  return isVehicleExist ? 'vehicle-card--selected border' : '';
+  if (
+    vehiclesSelected &&
+    vehiclesSelected.find(
+      vehicleSelected =>
+        vehicleSelected.name === vehicle.name &&
+        vehicleSelected.destination === planetActive.name
+    )
+  ) {
+    className += 'vehicle-card--selected ';
+  }
+
+  return className;
+};
+
+export const renderVehicleImgClassName = (
+  vehicle,
+  vehiclesSelected,
+  planetActive
+) => {
+  let className = 'vehicle-logo ';
+
+  if (
+    vehiclesSelected &&
+    vehiclesSelected.find(
+      vehicleSelected =>
+        vehicleSelected.name === vehicle.name &&
+        vehicleSelected.destination === planetActive.name
+    )
+  ) {
+    className += 'vehicle-logo--selected ';
+  }
+
+  return className;
 };
 
 export const calculTimeTaken = (planetsSelected, vehiclesSelected) => {

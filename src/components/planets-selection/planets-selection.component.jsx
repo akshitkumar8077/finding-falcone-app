@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import { toggleVehiclesHidden } from '../../redux/vehicles/vehicles.actions';
 import { setPlanetActive } from '../../redux/planets/planets.actions';
 
-import { isPlanetSelected, isPlanetActive } from './planets-selection.utils';
+import {
+  renderCardClassName,
+  renderImgClassName
+} from './planets-selection.utils';
 
 import './planets-selection.styles.css';
 
@@ -33,18 +36,14 @@ const PlanetSelection = ({
 
   const planets =
     planetsList &&
-    planetsList.map((planet, i) => (
+    planetsList.map(planet => (
       <div key={planet.name}>
         <div
-          className={`
-          ${'planet-card'}
-          ${isPlanetSelected(planet, planetsSelected)}
-          ${isPlanetActive(planet, planetActive)}
-          `}
+          className={renderCardClassName(planet, planetActive, planetsSelected)}
           onClick={() => handleClick(planet)}
         >
           <img
-            className='card__img'
+            className={renderImgClassName(planet, planetsSelected)}
             src={require(`../../assets/planets/${planet.name}.png`)}
             alt={planet.name}
           />

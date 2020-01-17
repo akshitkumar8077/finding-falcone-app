@@ -43,9 +43,9 @@
   width: 100px;
 }
 
-.card__img--active {
+.card__img--selected {
+  animation: spin 25s infinite linear;
   transform-origin: 50% 50%;
-  animation: spin 50s linear infinite;
 }
 
 @keyframes spin {

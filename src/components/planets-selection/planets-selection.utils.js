@@ -1,15 +1,29 @@
-export const isPlanetSelected = (planetCard, planetsSelected) => {
-  const isPlanetExist =
-    planetsSelected &&
-    planetsSelected.find(
-      planetSelected => planetSelected.name === planetCard.name
-    );
+export const renderCardClassName = (planet, planetActive, planetsSelected) => {
+  let className = 'planet-card';
 
-  return isPlanetExist ? 'planet-card--selected' : '';
+  if (planetActive && planetActive.name === planet.name) {
+    className += ' planet-card--active';
+  }
+
+  if (
+    planetsSelected &&
+    planetsSelected.find(planetSelected => planetSelected.name === planet.name)
+  ) {
+    className += ' planet-card--selected';
+  }
+
+  return className;
 };
 
-export const isPlanetActive = (planetCard, planetActive) => {
-  return planetActive && planetCard.name === planetActive.name
-    ? 'planet-card--active'
-    : '';
+export const renderImgClassName = (planet, planetsSelected) => {
+  let className = 'card__img';
+
+  if (
+    planetsSelected &&
+    planetsSelected.find(planetSelected => planetSelected.name === planet.name)
+  ) {
+    className += ' card__img--selected';
+  }
+
+  return className;
 };
