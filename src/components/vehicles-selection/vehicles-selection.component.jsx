@@ -71,9 +71,11 @@ const VehiclesSelection = ({
       );
     } else {
       return [
-        planetAlreadySelected ? null : addPlanet(planetActive),
-        addVehicle(vehicle, planetActive.name),
-        updateStock()
+        planetAlreadySelected && vehicle.remain_no === 0
+          ? null
+          : addPlanet(planetActive),
+        vehicle.remain_no !== 0 ? addVehicle(vehicle, planetActive.name) : null,
+        vehicle.remain_no !== 0 ? updateStock() : null
       ];
     }
   };
@@ -106,7 +108,7 @@ const VehiclesSelection = ({
           </strong>
         </span>
         <span>
-          Maximum distance: <strong>{vehicle.max_distance}</strong>
+          Max. distance: <strong>{vehicle.max_distance}</strong>
         </span>
         <span>
           Speed: <strong>{vehicle.speed} ly</strong>
@@ -123,7 +125,7 @@ const VehiclesSelection = ({
         {vehicles}
         <div className='vehicle-card'>
           <span>
-            TOTAL TIME TAKEN:{' '}
+            TIME TAKEN:{' '}
             <strong>
               {calculTimeTaken(planetsSelected, vehiclesSelected)} light year
             </strong>{' '}
