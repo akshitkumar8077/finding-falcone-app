@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import './vehicles-selection.styles.css';
 
@@ -131,7 +132,9 @@ const VehiclesSelection = ({
               {calculTimeTaken(planetsSelected, vehiclesSelected)} light year
             </strong>{' '}
           </span>
-          <CustomButton>LAUNCHING</CustomButton>
+          <Link to='/result'>
+            <CustomButton>LAUNCHING</CustomButton>
+          </Link>
         </div>
       </div>
     </div>
