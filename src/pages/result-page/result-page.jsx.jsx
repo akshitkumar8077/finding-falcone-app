@@ -3,35 +3,50 @@ import { connect } from 'react-redux';
 
 import './result-page.styles.css';
 
-import { fetchTokenStartAsync } from '../../redux/token/token.actions';
+import { fetchFindStartAsync } from '../../redux/find/find.actions';
 
+import ResultComponent from '../../components/result/result.component';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
 
-const mapStateToProps = ({ token, planets, vehicles }) => ({
+const ResultComponentWithSpinner = WithSpinner(ResultComponent);
+
+const mapStateToProps = ({ token, planets, vehicles, find }) => ({
   planetsSelected: planets.planetsSelected,
   vehiclesSelected: vehicles.vehiclesSelected,
   token: token.token,
-  isFetching: token.isFetching,
-  erroMessage: token.erroMessage
+  isFetching: find.isFetching,
+  response: find.response
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchTokenStartAsync: () => dispatch(fetchTokenStartAsync())
+  fetchFindStartAsync: request => dispatch(fetchFindStartAsync(request))
 });
 
 const ResultPage = ({
-  fetchTokenStartAsync,
+  fetchFindStartAsync,
   planetsSelected,
-  vehiclesSelected
+  vehiclesSelected,
+  token,
+  isFetching,
+  response
 }) => {
   //
+
   useEffect(() => {
-    fetchTokenStartAsync();
-  }, [fetchTokenStartAsync]);
+    fetchFindStartAsync({
+      token: token.token,
+      planet_names: planetsSelected.map(item => item.name),
+      vehicle_names: vehiclesSelected.map(item => item.name)
+    });
+  }, [fetchFindStartAsync, planetsSelected, token.token, vehiclesSelected]);
 
   return (
     <div className='result-page-container'>
-      <span>je fetch mon token</span>
+      <ResultComponentWithSpinner
+        isLoading={isFetching}
+        status={response && response.status}
+        planetName={response && response.planet_name}
+      />
     </div>
   );
 };

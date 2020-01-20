@@ -6,7 +6,7 @@ import './with-spinner.styles.css';
 
 const WithSpinner = WrappedComponent => ({ isLoading, ...otherProps }) => {
   return isLoading ? (
-    <div>
+    <div className='with-spinner-container'>
       <Logo />
     </div>
   ) : (

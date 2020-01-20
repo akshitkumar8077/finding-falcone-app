@@ -6,9 +6,9 @@ export const fetchTokenStart = () => ({
   type: tokenActionTypes.FETCH_TOKEN_START
 });
 
-export const fetchTokenSuccess = TOKENList => ({
+export const fetchTokenSuccess = token => ({
   type: tokenActionTypes.FETCH_TOKEN_SUCCESS,
-  payload: TOKENList
+  payload: token
 });
 
 export const fetchTokenFailure = errorMessage => ({

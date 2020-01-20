@@ -1,25 +1,25 @@
-import tokenActionTypes from './token.types';
+import findActionTypes from './find.types';
 
 const INITIAL_STATE = {
-  token: null,
+  response: null,
   isFetching: false,
   errorMessage: undefined
 };
 
-const tokenReducer = (state = INITIAL_STATE, action) => {
+const findReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case tokenActionTypes.FETCH_TOKEN_START:
+    case findActionTypes.FETCH_FIND_START:
       return {
         ...state,
         isFetching: true
       };
-    case tokenActionTypes.FETCH_TOKEN_SUCCESS:
+    case findActionTypes.FETCH_FIND_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        token: action.payload
+        response: action.payload
       };
-    case tokenActionTypes.FETCH_TOKEN_FAILURE:
+    case findActionTypes.FETCH_FIND_FAILURE:
       return {
         ...state,
         isFetching: false,
@@ -31,4 +31,4 @@ const tokenReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default tokenReducer;
+export default findReducer;

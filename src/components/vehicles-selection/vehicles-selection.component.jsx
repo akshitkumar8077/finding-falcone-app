@@ -50,14 +50,11 @@ const VehiclesSelection = ({
   //
 
   const handleClick = (vehicle, planetActive) => {
+    //
     const vehicleAlreadySelected = vehiclesSelected.find(
       vehicleSelected =>
         vehicleSelected.destination === planetActive.name &&
         vehicleSelected.name === vehicle.name
-    );
-
-    const planetAlreadySelected = planetsSelected.find(
-      planet => planet.name === planetActive.name
     );
 
     if (vehicleAlreadySelected) {
@@ -69,7 +66,7 @@ const VehiclesSelection = ({
           updateStock()
         ]
       );
-    } else {
+    } else if (planetsSelected.length < 4) {
       return [
         removePlanet(planetActive),
         addPlanet(planetActive),
@@ -132,9 +129,11 @@ const VehiclesSelection = ({
               {calculTimeTaken(planetsSelected, vehiclesSelected)} light year
             </strong>{' '}
           </span>
-          <Link to='/result'>
-            <CustomButton>LAUNCHING</CustomButton>
-          </Link>
+          {planetsSelected.length === 4 ? (
+            <Link to='/result'>
+              <CustomButton>LAUNCHING</CustomButton>
+            </Link>
+          ) : null}
         </div>
       </div>
     </div>

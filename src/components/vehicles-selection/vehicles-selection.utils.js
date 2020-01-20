@@ -9,20 +9,19 @@ export const renderVehicleCardClassName = (
     className += 'vehicle-card--unavailable ';
   }
 
-  if (
-    vehiclesSelected &&
-    vehiclesSelected.find(
-      vehicleSelected =>
-        vehicle.remain_no === 0 &&
-        vehicleSelected.destination === vehicle.destination &&
-        vehicleSelected.destination !== planetActive.name
-    )
-  ) {
-    className += 'vehicle-card--unavailable ';
-  }
+  // if (
+  //   vehiclesSelected.find(
+  //     vehicleSelected =>
+  //       vehicle.remain_no === 0 &&
+  //       vehicleSelected.destination !== planetActive.name
+  //     // &&
+  //     // vehicleSelected.destination === vehicle.destination
+  //   )
+  // ) {
+  //   className += 'vehicle-card--unavailable ';
+  // }
 
   if (
-    vehiclesSelected &&
     vehiclesSelected.find(
       vehicleSelected =>
         vehicleSelected.name === vehicle.name &&
@@ -30,6 +29,17 @@ export const renderVehicleCardClassName = (
     )
   ) {
     className += 'vehicle-card--selected ';
+  }
+
+  if (
+    vehicle.remain_no === 0 &&
+    !vehiclesSelected.find(
+      vehicleSelected =>
+        vehicleSelected.name === vehicle.name &&
+        vehicleSelected.destination === planetActive.name
+    )
+  ) {
+    className += 'vehicle-card--unavailable ';
   }
 
   return className;
@@ -57,8 +67,6 @@ export const renderVehicleImgClassName = (
 };
 
 export const calculTimeTaken = (planetsSelected, vehiclesSelected) => {
-  console.log('TLC: calculTimeTaken -> vehiclesSelected', vehiclesSelected);
-  console.log('TLC: calculTimeTaken -> planetsSelected', planetsSelected);
   const distance = planetsSelected.map(item => item.distance);
   const speed = vehiclesSelected.map(item => item.speed);
 

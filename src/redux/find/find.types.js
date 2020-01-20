@@ -1,0 +1,7 @@
+const findActionTypes = {
+  FETCH_FIND_START: 'FETCH_FIND_START',
+  FETCH_FIND_SUCCESS: 'FETCH_FIND_SUCCESS',
+  FETCH_FIND_FAILURE: 'FETCH_FIND_FAILURE'
+};
+
+export default findActionTypes;

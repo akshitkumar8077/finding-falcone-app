@@ -5,6 +5,7 @@ import './select-page.styles.css';
 
 import { fetchPlanetsStartAsync } from '../../redux/planets/planets.actions';
 import { fetchVehiclesStartAsync } from '../../redux/vehicles/vehicles.actions';
+import { fetchTokenStartAsync } from '../../redux/token/token.actions';
 
 import PlanetSelection from '../../components/planets-selection/planets-selection.component';
 import VehiclesSelection from '../../components/vehicles-selection/vehicles-selection.component';
@@ -23,7 +24,8 @@ const mapStateToProps = ({ planets, vehicles }) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchPlanetsStartAsync: () => dispatch(fetchPlanetsStartAsync()),
-  fetchVehiclesStartAsync: () => dispatch(fetchVehiclesStartAsync())
+  fetchVehiclesStartAsync: () => dispatch(fetchVehiclesStartAsync()),
+  fetchTokenStartAsync: () => dispatch(fetchTokenStartAsync())
 });
 
 const SelectPage = ({
@@ -34,13 +36,16 @@ const SelectPage = ({
   fetchVehiclesStartAsync,
   isFetchingVehicles,
   vehiclesList,
-  isHidden
+  isHidden,
+
+  fetchTokenStartAsync
 }) => {
   //
   useEffect(() => {
     fetchPlanetsStartAsync();
     fetchVehiclesStartAsync();
-  }, [fetchPlanetsStartAsync, fetchVehiclesStartAsync]);
+    fetchTokenStartAsync();
+  }, [fetchPlanetsStartAsync, fetchTokenStartAsync, fetchVehiclesStartAsync]);
 
   return (
     <div className='select-page-container'>
