@@ -4,11 +4,19 @@ import './result.styles.css';
 
 const ResultComponent = (status, planetName) => {
   return (
-    <div className='result-wrapper'>
+    <div className='result-container'>
       {status === 'success' ? (
-        <h1>Queen Al Falcone was found hiding on planet {planetName}</h1>
+        <div>
+          <h1>Success!</h1>
+          <p>Congratulation on finding Falcone</p>
+          <p>King Shan is mighty pleased</p>
+          <p>{planetName}</p>
+        </div>
       ) : (
-        <h1>Try again</h1>
+        <div>
+          <h1>Not found!</h1>
+          <p>Queen Al Falcone was not on these planets.</p>
+        </div>
       )}
     </div>
   );

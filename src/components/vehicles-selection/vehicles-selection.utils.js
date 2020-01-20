@@ -9,18 +9,6 @@ export const renderVehicleCardClassName = (
     className += 'vehicle-card--unavailable ';
   }
 
-  // if (
-  //   vehiclesSelected.find(
-  //     vehicleSelected =>
-  //       vehicle.remain_no === 0 &&
-  //       vehicleSelected.destination !== planetActive.name
-  //     // &&
-  //     // vehicleSelected.destination === vehicle.destination
-  //   )
-  // ) {
-  //   className += 'vehicle-card--unavailable ';
-  // }
-
   if (
     vehiclesSelected.find(
       vehicleSelected =>
