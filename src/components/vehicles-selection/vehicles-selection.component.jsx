@@ -99,7 +99,7 @@ const VehiclesSelection = ({
         />
         <h3>{vehicle.name}</h3>
         <span>
-          Remaining:
+          Remaining:{' '}
           <strong>
             {vehicle.remain_no || vehicle.remain_no === 0
               ? vehicle.remain_no
@@ -131,7 +131,7 @@ const VehiclesSelection = ({
           </span>
           {planetsSelected.length === 4 ? (
             <Link to='/result'>
-              <CustomButton>LAUNCHING</CustomButton>
+              <CustomButton>START EXPEDITION</CustomButton>
             </Link>
           ) : null}
         </div>

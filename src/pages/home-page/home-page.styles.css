@@ -1,6 +1,7 @@
 .home-page {
   display: flex;
-  height: calc(100vh - 50px);
+  width: 100vw;
+  min-height: calc(100vh - 100px);
   padding: 25px 50px 25px 50px;
 }
 

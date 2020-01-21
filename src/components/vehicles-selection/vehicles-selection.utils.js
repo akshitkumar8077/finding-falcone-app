@@ -38,7 +38,7 @@ export const renderVehicleImgClassName = (
   vehiclesSelected,
   planetActive
 ) => {
-  let className = 'vehicle-logo ';
+  let className = 'vehicle-card__img ';
 
   if (
     vehiclesSelected &&
@@ -48,7 +48,7 @@ export const renderVehicleImgClassName = (
         vehicleSelected.destination === planetActive.name
     )
   ) {
-    className += 'vehicle-logo--selected ';
+    className += 'vehicle-card__img--selected ';
   }
 
   return className;

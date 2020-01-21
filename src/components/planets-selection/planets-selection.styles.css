@@ -8,12 +8,11 @@
 
 .planets-container {
   display: flex;
-  width: 80vw;
   justify-content: space-between;
+  width: 80vw;
 }
 
 .planet-card {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;

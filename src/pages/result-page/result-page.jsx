@@ -42,11 +42,7 @@ const ResultPage = ({
 
   return (
     <div className='result-page-container'>
-      <ResultComponentWithSpinner
-        isLoading={isFetching}
-        status={response && response.status}
-        planetName={response && response.planet_name}
-      />
+      <ResultComponentWithSpinner isLoading={isFetching} response={response} />
     </div>
   );
 };

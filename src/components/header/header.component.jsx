@@ -15,7 +15,9 @@ const Header = ({ reset }) => {
     <div className='header'>
       <Link to='/' className='logo-container'>
         {' '}
-        <span>HOME</span>
+        <p>
+          <strong>HOME</strong>
+        </p>
       </Link>
       <Link onClick={() => reset()} to='/' className='logo-container'>
         {' '}
