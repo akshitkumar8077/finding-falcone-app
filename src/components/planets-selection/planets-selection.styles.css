@@ -1,15 +1,18 @@
 .planets-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100vw;
+  padding: 10px;
 }
 
 .planets-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 80vw;
+  height: 300px;
 }
 
 .planet-card {
@@ -36,6 +39,11 @@
 .planet-card--selected {
   background-color: #875347;
   transition: 0.4s ease;
+}
+
+.planet-card--unavailable {
+  filter: blur(4px);
+  pointer-events: none;
 }
 
 .card__img {

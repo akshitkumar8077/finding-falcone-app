@@ -4,9 +4,11 @@
   min-width: 165px;
   width: auto;
   height: 50px;
+
   padding: 0 35px 0 35px;
   margin: 1em;
   border: 1px solid #c94833;
+  border-radius: 10px;
 
   background-color: #c94833;
   color: white;

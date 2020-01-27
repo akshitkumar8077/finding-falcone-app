@@ -4,12 +4,15 @@
   justify-content: space-around;
   align-items: center;
   width: 100vw;
+  padding: 10px;
 }
 
 .vehicles-container {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 80vw;
+  height: 300px;
 }
 
 .vehicle-card {
