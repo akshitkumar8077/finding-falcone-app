@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Installation
 
-## Available Scripts
+finding-falcone-app requires [Node.js](https://nodejs.org/) to run.
 
-In the project directory, you can run:
+Install the dependencies and devDependencies and start the server.
 
-### `npm start`
+```sh
+$ cd finding-falcone-app
+$ npm install
+$ npm start
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# App
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+GeekTrust Challenge : https://www.geektrust.in/coding-problem/frontend/space
 
-### `npm test`
+Our coding challenges are set in the planet of Lengaburu. After the recent Falicornian war, King Shan has exiled Queen Al Falcone for 15 years. However, if he finds her before the 15 years are up, she has to go into exile for another 15 years!
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+King Shan has received intelligence that Al Falcone is hiding in one of six neighbouring planets. In this problem you need to build a UI through which King Shan can choose the planets to search, and the vehicles to use in Finding Falcone. See more details on planets & vehicles.
 
-### `npm run build`
+All geektrust problems are meant to be solved offline looking at considerations of OOPS, readability and simplicity.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# What you need to do
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+You need to build a UI (mockups available at the end of this PDF) through which King Shan can
+• select 4 planets to search (out of the total 6)
+• select which space vehicles to send to these planets
+• see how much time it will take for the vehicles to reach their targets &
+• show final result of success or failure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# What we give you
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+• a planets API that list out the planets, and how far they are from Lengaburu (https://findfalcone.herokuapp.com/
+planets)
+• a vehicles API that lists the types of space vehicle at your disposal, how many of each type you have, the
+maximum distance a vehicle can go (range), and their speed (https://findfalcone.herokuapp.com/vehicles)
+• a FindFalcone API that returns whether you were successful in your search or not (we randomly assign a planet
+to Al Falcone) (https://findfalcone.herokuapp.com/find)
